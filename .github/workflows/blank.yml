@@ -1,36 +1,183 @@
-# This is a basic workflow to help you get started with Actions
+local ScreenGui = Instance.new("ScreenGui")
+local TJABangScript = Instance.new("TextLabel")
+local TJAFrame = Instance.new("Frame")
+local PlrNameBox = Instance.new("TextBox")
+local StartButton = Instance.new("TextButton")
+local StopButton = Instance.new("TextButton")
+local BangSpeedBox = Instance.new("TextBox")
+local Creditlabel = Instance.new("TextLabel")
 
-name: CI
+--Properties:
 
-# Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+TJABangScript.Name = "TJABangScript"
+TJABangScript.Parent = ScreenGui
+TJABangScript.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TJABangScript.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TJABangScript.BorderSizePixel = 0
+TJABangScript.Position = UDim2.new(0.258064508, 0, 0.240223467, 0)
+TJABangScript.Size = UDim2.new(0, 450, 0, 45)
+TJABangScript.Font = Enum.Font.SourceSans
+TJABangScript.Text = "TJA bang script"
+TJABangScript.TextColor3 = Color3.fromRGB(0, 0, 0)
+TJABangScript.TextScaled = true
+TJABangScript.TextSize = 14.000
+TJABangScript.TextWrapped = true
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+TJAFrame.Name = "TJAFrame"
+TJAFrame.Parent = TJABangScript
+TJAFrame.BackgroundColor3 = Color3.fromRGB(225, 225, 225)
+TJAFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TJAFrame.BorderSizePixel = 0
+TJAFrame.Position = UDim2.new(0, 0, 1, 0)
+TJAFrame.Size = UDim2.new(0, 450, 0, 203)
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+PlrNameBox.Name = "PlrNameBox"
+PlrNameBox.Parent = TJAFrame
+PlrNameBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlrNameBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PlrNameBox.Position = UDim2.new(0.178145617, 0, 0.0448911302, 0)
+PlrNameBox.Size = UDim2.new(0, 287, 0, 51)
+PlrNameBox.Font = Enum.Font.SourceSans
+PlrNameBox.PlaceholderText = "Player Name/Username"
+PlrNameBox.Text = ""
+PlrNameBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+PlrNameBox.TextScaled = true
+PlrNameBox.TextSize = 14.000
+PlrNameBox.TextWrapped = true
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+StartButton.Name = "StartButton"
+StartButton.Parent = TJAFrame
+StartButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+StartButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+StartButton.BorderSizePixel = 0
+StartButton.Position = UDim2.new(0.180367842, 0, 0.54679805, 0)
+StartButton.Size = UDim2.new(0, 287, 0, 35)
+StartButton.Font = Enum.Font.SourceSans
+StartButton.Text = "Start"
+StartButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+StartButton.TextSize = 14.000
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+StopButton.Name = "StopButton"
+StopButton.Parent = TJAFrame
+StopButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+StopButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+StopButton.BorderSizePixel = 0
+StopButton.Position = UDim2.new(0.180000007, 0, 0.788177311, 0)
+StopButton.Size = UDim2.new(0, 287, 0, 35)
+StopButton.Font = Enum.Font.SourceSans
+StopButton.Text = "Stop"
+StopButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+StopButton.TextSize = 14.000
+
+BangSpeedBox.Name = "BangSpeedBox"
+BangSpeedBox.Parent = TJAFrame
+BangSpeedBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BangSpeedBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BangSpeedBox.Position = UDim2.new(0.178145617, 0, 0.29612267, 0)
+BangSpeedBox.Size = UDim2.new(0, 287, 0, 37)
+BangSpeedBox.Font = Enum.Font.SourceSans
+BangSpeedBox.PlaceholderText = "Bang Speed"
+BangSpeedBox.Text = ""
+BangSpeedBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+BangSpeedBox.TextScaled = true
+BangSpeedBox.TextSize = 14.000
+BangSpeedBox.TextWrapped = true
+
+Creditlabel.Name = "Creditlabel"
+Creditlabel.Parent = TJABangScript
+Creditlabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Creditlabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Creditlabel.BorderSizePixel = 0
+Creditlabel.Position = UDim2.new(0, 0, 5.50602055, 0)
+Creditlabel.Size = UDim2.new(0, 450, 0, 45)
+Creditlabel.Font = Enum.Font.SourceSans
+Creditlabel.Text = "Made By Tttagjgjgj"
+Creditlabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+Creditlabel.TextScaled = true
+Creditlabel.TextSize = 14.000
+Creditlabel.TextWrapped = true
+
+-- Scripts:
+
+local function NTSIUIA_fake_script() -- TJAFrame.TeleportAndAnimate 
+	local script = Instance.new('LocalScript', TJAFrame)
+
+	local Players = game:GetService("Players")
+	local LocalPlayer = Players.LocalPlayer
+	local TextBox = script.Parent:FindFirstChild("PlrNameBox")
+	local BangSpeedBox = script.Parent:FindFirstChild("BangSpeedBox") 
+	local TextButton = script.Parent:FindFirstChild("StartButton")
+	local TextButton3 = script.Parent:FindFirstChild("StopButton") 
+	
+	local animationIdR15 = "rbxassetid://10714068222"
+	local animationIdR6 = "rbxassetid://148840371"
+	local isRunning = false
+	
+	local function teleportAndAnimate()
+		local inputText = TextBox.Text:lower() 
+		local speedText = BangSpeedBox.Text
+		local speed = tonumber(speedText) or 1 
+	
+		local targetPlayer = nil
+	
+		-- Iterate through all players to find a match by name or display name
+		for _, player in Players:GetPlayers() do
+			local playerName = player.Name:lower()
+			local playerDisplayName = player.DisplayName:lower()
+			if playerName:sub(1, #inputText) == inputText or playerDisplayName:sub(1, #inputText) == inputText then
+				targetPlayer = player
+				break
+			end
+		end
+	
+		local localCharacter = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+		local humanoid = localCharacter:FindFirstChildOfClass("Humanoid")
+		if humanoid then
+			local animation = Instance.new("Animation")
+			if humanoid.RigType == Enum.HumanoidRigType.R15 then
+				animation.AnimationId = animationIdR15
+			else
+				animation.AnimationId = animationIdR6
+			end
+			local animationTrack = humanoid:LoadAnimation(animation)
+			animationTrack:Play(0.1, 1, speed) 
+	
+			isRunning = true
+			while isRunning do
+				if targetPlayer and targetPlayer.Character then
+					local targetHumanoidRootPart = targetPlayer.Character:FindFirstChild("HumanoidRootPart")
+					local localHumanoidRootPart = localCharacter:FindFirstChild("HumanoidRootPart")
+	
+					if targetHumanoidRootPart and localHumanoidRootPart then
+						localHumanoidRootPart.CFrame = targetHumanoidRootPart.CFrame * CFrame.new(0, 0, 1)
+					end
+				else
+					-- Only run the animation without moving
+					humanoid:ChangeState(Enum.HumanoidStateType.Running)
+				end
+				task.wait(1 / speed) 
+			end
+			animationTrack:Stop()
+		end
+	end
+	
+	TextButton.MouseButton1Click:Connect(teleportAndAnimate)
+	
+	if TextButton3 then
+		TextButton3.MouseButton1Click:Connect(function()
+			isRunning = false
+		end)
+	end
+	
+end
+coroutine.wrap(NTSIUIA_fake_script)()
+local function XVHIR_fake_script() -- TJABangScript.LocalScript 
+	local script = Instance.new('LocalScript', TJABangScript)
+
+	script.Parent.Active = true
+	script.Parent.Draggable = true
+end
+coroutine.wrap(XVHIR_fake_script)()
